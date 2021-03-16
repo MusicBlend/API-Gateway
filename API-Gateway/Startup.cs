@@ -10,16 +10,14 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
-using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace API_Gateway
 {
     public class Startup
     {
-       
         private IConfiguration Configuration { get; }
         
-        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+        //readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         
         public Startup(IConfiguration configuration) 
         {
@@ -28,15 +26,6 @@ namespace API_Gateway
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options =>
-            {
-                options.AddPolicy(MyAllowSpecificOrigins,
-                    builder =>
-                    {
-                        builder.WithOrigins(Configuration.GetValue<string>("clientURL"));
-                    });
-            });
-            
             services.AddOcelot(Configuration);
         }
 
@@ -49,7 +38,7 @@ namespace API_Gateway
             }
 
             app.UseRouting();
-            app.UseCors(MyAllowSpecificOrigins); 
+            //app.UseCors(MyAllowSpecificOrigins); 
 
             app.UseEndpoints(endpoints =>
             {
