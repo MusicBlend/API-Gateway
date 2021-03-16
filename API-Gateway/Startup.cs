@@ -17,7 +17,6 @@ namespace API_Gateway
     {
         private IConfiguration Configuration { get; }
         
-        //readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         
         public Startup(IConfiguration configuration) 
         {
@@ -38,7 +37,6 @@ namespace API_Gateway
             }
 
             app.UseRouting();
-            //app.UseCors(MyAllowSpecificOrigins); 
 
             app.UseEndpoints(endpoints =>
             {
