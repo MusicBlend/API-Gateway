@@ -17,7 +17,6 @@ namespace API_Gateway
     {
         private IConfiguration Configuration { get; }
         
-        
         public Startup(IConfiguration configuration) 
         {
             Configuration = configuration; 
@@ -37,7 +36,7 @@ namespace API_Gateway
             }
 
             app.UseRouting();
-
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGet("/", async context => { await context.Response.WriteAsync("Hello World!"); });
