@@ -21,6 +21,10 @@ namespace API_Gateway
         
         readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         
+        public Startup(IConfiguration configuration) 
+        {
+            Configuration = configuration; 
+        }
 
         public void ConfigureServices(IServiceCollection services)
         {
