@@ -1,0 +1,19 @@
+﻿{
+   "Routes": [
+    {
+      "DownstreamPathTemplate": "/GetAuthToken",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "spotifyauth",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/GetAuthToken",
+      "UpstreamHttpMethod": [ "Get" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://musicblend.picus.dev"
+  }
+}
